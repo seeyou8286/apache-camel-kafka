@@ -34,9 +34,9 @@ public class MessageController {
 	@Qualifier("KafkaRouteProducer")
 	RouteBuilder kafkaRouteProducer;
 
-	@Autowired
-	@Qualifier("KafkaRouteConsumer")
-	RouteBuilder kafkaRouteConsumer;
+//	@Autowired
+//	@Qualifier("KafkaRouteConsumer")
+//	RouteBuilder kafkaRouteConsumer;
 
 	@EndpointInject(uri = "direct:kafkaRoute")
 	ProducerTemplate kafkaProducer;
@@ -47,7 +47,7 @@ public class MessageController {
 	public void setup() {
 		try {
 			camelContext.addRoutes(kafkaRouteProducer);
-			camelContext.addRoutes(kafkaRouteConsumer);
+//			camelContext.addRoutes(kafkaRouteConsumer);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
